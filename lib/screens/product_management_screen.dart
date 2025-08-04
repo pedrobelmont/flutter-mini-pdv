@@ -1,0 +1,130 @@
+
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:csv/csv.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_pos/models/product_category.dart';
+import 'package:flutter_pos/models/product.dart';
+import 'package:flutter_pos/providers/product_provider.dart';
+import 'package:flutter_pos/screens/add_product_screen.dart';
+import 'package:flutter_pos/screens/edit_product_screen.dart';
+import 'package:provider/provider.dart';
+
+class ProductManagementScreen extends StatefulWidget {
+  @override
+  _ProductManagementScreenState createState() => _ProductManagementScreenState();
+}
+
+class _ProductManagementScreenState extends State<ProductManagementScreen> {
+  Future<void> _importCSV() async {
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['csv'],
+    );
+
+    if (result != null) {
+      final filePath = result.files.single.path!;
+      final input = File(filePath).openRead();
+      final fields = await input
+          .transform(utf8.decoder)
+          .transform(new CsvToListConverter())
+          .toList();
+
+      final productProvider = Provider.of<ProductProvider>(context, listen: false);
+      for (final field in fields.skip(1)) { // Pula o cabeçalho
+        final product = Product(
+          id: DateTime.now().toString(),
+          name: field[0],
+          price: double.parse(field[1].toString()),
+          stock: int.parse(field[2].toString()),
+          category: ProductCategory.others,
+        );
+        productProvider.add(product);
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Produtos importados com sucesso!')),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Gerenciar Produtos'),
+      ),
+      body: Consumer<ProductProvider>(
+        builder: (context, productProvider, child) {
+          final products = productProvider.products;
+          if (products.isEmpty) {
+            return Center(
+              child: Text('Nenhum produto cadastrado.'),
+            );
+          }
+          return ListView.builder(
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              final product = products[index];
+              return Card(
+                margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: ListTile(
+                  title: Text(product.name),
+                  subtitle: Text('Preço: R\ ${product.price.toStringAsFixed(2)} | Estoque: ${product.stock}'),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.edit),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EditProductScreen(product: product),
+                            ),
+                          );
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () {
+                          productProvider.deleteProduct(product.id);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Produto excluído com sucesso!')),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: _importCSV,
+            child: Icon(Icons.upload_file),
+            heroTag: 'import_csv',
+          ),
+          SizedBox(width: 16),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddProductScreen()),
+              );
+            },
+            child: Icon(Icons.add),
+            heroTag: 'add_product',
+          ),
+        ],
+      ),
+    );
+  }
+}

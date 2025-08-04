@@ -1,0 +1,50 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'sale.dart';
+
+// **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class SaleAdapter extends TypeAdapter<Sale> {
+  @override
+  final typeId = 1;
+
+  @override
+  Sale read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Sale(
+      items: (fields[0] as List).cast<CartItem>(),
+      total: (fields[1] as num).toDouble(),
+      date: fields[2] as DateTime,
+      paymentMethod: fields[3] as PaymentMethod,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Sale obj) {
+    writer
+      ..writeByte(4)
+      ..writeByte(0)
+      ..write(obj.items)
+      ..writeByte(1)
+      ..write(obj.total)
+      ..writeByte(2)
+      ..write(obj.date)
+      ..writeByte(3)
+      ..write(obj.paymentMethod);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SaleAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\pedro\flutter_pos\windows\flutter\ephemeral\.plugin_symlinks\share_plus\windows\share_plus_plugin_c_api.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pedro\flutter_pos\windows\flutter\ephemeral\.plugin_symlinks\share_plus\windows\share_plus_plugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\pedro\flutter_pos\windows\flutter\ephemeral\.plugin_symlinks\share_plus\windows\include\share_plus\share_plus_windows_plugin_c_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pedro\flutter_pos\windows\flutter\ephemeral\.plugin_symlinks\share_plus\windows\share_plus_windows_plugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\windows\flutter\ephemeral\.plugin_symlinks\share_plus\windows\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{E327318F-500C-32FD-B6B4-32177FCB1FE0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D3AC1977-83BE-3214-B91A-EFB2DD891897}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

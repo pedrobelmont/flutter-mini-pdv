@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\ea0845f09ea498fa2091e726334a0d2f\pdfium-download-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\ea0845f09ea498fa2091e726334a0d2f\pdfium-download-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\ea0845f09ea498fa2091e726334a0d2f\pdfium-download-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\ea0845f09ea498fa2091e726334a0d2f\pdfium-download-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\ea0845f09ea498fa2091e726334a0d2f\pdfium-download-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\ea0845f09ea498fa2091e726334a0d2f\pdfium-download-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\ea0845f09ea498fa2091e726334a0d2f\pdfium-download-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\ea0845f09ea498fa2091e726334a0d2f\pdfium-download-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\bba7c6dbb9ba3c3d849b4ba23d9635fe\pdfium-download-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\b437fb8243cfdd79664b16a37f7b1a9d\pdfium-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\pedro\flutter_pos\build\windows\x64\pdfium-download\CMakeFiles\pdfium-download" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B83F43F2-3DC6-389C-8092-50B90C3D177B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

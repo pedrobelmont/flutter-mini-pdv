@@ -1,0 +1,48 @@
+// **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class PaymentMethodAdapter extends TypeAdapter<PaymentMethod> {
+  @override
+  final typeId = 6;
+
+  @override
+  PaymentMethod read(BinaryReader reader) {
+    switch (reader.readByte()) {
+      case 0:
+        return PaymentMethod.pix;
+      case 1:
+        return PaymentMethod.dinheiro;
+      case 2:
+        return PaymentMethod.credito;
+      case 3:
+        return PaymentMethod.debito;
+      default:
+        return PaymentMethod.pix;
+    }
+  }
+
+  @override
+  void write(BinaryWriter writer, PaymentMethod obj) {
+    switch (obj) {
+      case PaymentMethod.pix:
+        writer.writeByte(0);
+      case PaymentMethod.dinheiro:
+        writer.writeByte(1);
+      case PaymentMethod.credito:
+        writer.writeByte(2);
+      case PaymentMethod.debito:
+        writer.writeByte(3);
+    }
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PaymentMethodAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
