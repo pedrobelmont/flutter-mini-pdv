@@ -15,6 +15,7 @@ import 'package:flutter_pos/providers/sales_provider.dart';
 import 'package:flutter_pos/providers/company_info_provider.dart';
 import 'package:flutter_pos/providers/theme_provider.dart';
 import 'package:flutter_pos/screens/login_screen.dart';
+import 'package:flutter_pos/widgets/Spacial_will.dart';
 import 'package:hive_ce/hive.dart';
 import 'package:hive_ce_flutter/adapters.dart';
 import 'package:provider/provider.dart';
@@ -63,6 +64,11 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeNotifier>(
         builder: (context, themeNotifier, child) {
           return MaterialApp(
+            builder: (context, child) {
+              return SpacialWill(
+                child: child ?? const SizedBox.shrink(),
+              );
+            },
             color: themeNotifier.primaryColor,
             title: 'mini pdv',
             theme: ThemeData(
