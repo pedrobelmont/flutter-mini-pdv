@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/providers/cart_provider.dart';
-import 'package:flutter_pos/providers/product_provider.dart';
-import 'package:flutter_pos/screens/qr_scanner_screen.dart';
+import 'package:mini_pdv/providers/cart_provider.dart';
+import 'package:mini_pdv/providers/product_provider.dart';
+import 'package:mini_pdv/screens/qr_scanner_screen.dart';
 import 'package:provider/provider.dart';
 
 void showQuickAddDialog(BuildContext context) {

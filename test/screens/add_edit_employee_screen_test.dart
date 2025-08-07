@@ -1,9 +1,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/models/employee.dart';
-import 'package:flutter_pos/providers/employee_provider.dart';
-import 'package:flutter_pos/screens/add_edit_employee_screen.dart';
+import 'package:mini_pdv/models/employee.dart';
+import 'package:mini_pdv/providers/employee_provider.dart';
+import 'package:mini_pdv/screens/add_edit_employee_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_ce/hive.dart';
 import 'package:path_provider_ffi/path_provider_ffi.dart';

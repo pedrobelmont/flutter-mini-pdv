@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/models/product_category.dart';
-import 'package:flutter_pos/providers/cart_provider.dart';
-import 'package:flutter_pos/providers/product_provider.dart';
-import 'package:flutter_pos/screens/edit_product_screen.dart';
+import 'package:mini_pdv/models/product_category.dart';
+import 'package:mini_pdv/providers/cart_provider.dart';
+import 'package:mini_pdv/providers/product_provider.dart';
+import 'package:mini_pdv/screens/edit_product_screen.dart';
 import 'package:provider/provider.dart';
 
 class ProductGrid extends StatefulWidget {

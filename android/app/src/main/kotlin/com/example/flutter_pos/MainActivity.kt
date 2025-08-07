@@ -1,4 +1,4 @@
-package com.example.flutter_pos
+package com.example.mini_pdv
 
 import io.flutter.embedding.android.FlutterActivity
 

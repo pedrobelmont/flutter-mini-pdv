@@ -35,8 +35,8 @@ Você precisa ter o Flutter SDK instalado em sua máquina. Para instruções, ve
 
 1.  **Clone o repositório (substitua pela URL do seu repositório):**
     ```sh
-    git clone https://github.com/seu-usuario/flutter_pos.git
-    cd flutter_pos
+    git clone https://github.com/seu-usuario/mini_pdv.git
+    cd mini_pdv
     ```
 
 2.  **Instale as dependências:**

@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/dialogs/payment_dialog.dart';
-import 'package:flutter_pos/models/payment_method.dart';
-import 'package:flutter_pos/providers/cart_provider.dart';
-import 'package:flutter_pos/providers/product_provider.dart';
-import 'package:flutter_pos/providers/sales_provider.dart';
+import 'package:mini_pdv/dialogs/payment_dialog.dart';
+import 'package:mini_pdv/models/payment_method.dart';
+import 'package:mini_pdv/providers/cart_provider.dart';
+import 'package:mini_pdv/providers/product_provider.dart';
+import 'package:mini_pdv/providers/sales_provider.dart';
 import 'package:provider/provider.dart';
 
 class CartView extends StatefulWidget {

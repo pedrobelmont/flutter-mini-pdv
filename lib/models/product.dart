@@ -1,5 +1,5 @@
 import 'package:hive_ce/hive.dart';
-import 'package:flutter_pos/models/product_category.dart';
+import 'package:mini_pdv/models/product_category.dart';
 
 part 'product.g.dart';
 

@@ -1,10 +1,10 @@
 {
   "roots": [
-    "flutter_pos"
+    "mini_pdv"
   ],
   "packages": [
     {
-      "name": "flutter_pos",
+      "name": "mini_pdv",
       "version": "1.0.0+1",
       "dependencies": [
         "csv",

@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/screens/dashboard_screen.dart';
-import 'package:flutter_pos/screens/employee_management_screen.dart';
-import 'package:flutter_pos/screens/product_management_screen.dart';
-import 'package:flutter_pos/screens/company_info_screen.dart';
-import 'package:flutter_pos/screens/theme_screen.dart';
+import 'package:mini_pdv/screens/dashboard_screen.dart';
+import 'package:mini_pdv/screens/employee_management_screen.dart';
+import 'package:mini_pdv/screens/product_management_screen.dart';
+import 'package:mini_pdv/screens/company_info_screen.dart';
+import 'package:mini_pdv/screens/theme_screen.dart';
 
 class AdminScreen extends StatelessWidget {
   @override

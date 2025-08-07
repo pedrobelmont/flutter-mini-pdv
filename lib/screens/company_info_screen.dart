@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/models/company_info.dart';
-import 'package:flutter_pos/providers/company_info_provider.dart';
+import 'package:mini_pdv/models/company_info.dart';
+import 'package:mini_pdv/providers/company_info_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_pos/utils/cpf_cnpj_formatter.dart';
+import 'package:mini_pdv/utils/cpf_cnpj_formatter.dart';
 
 class CompanyInfoScreen extends StatefulWidget {
   @override

@@ -1,8 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/models/employee.dart';
-import 'package:flutter_pos/providers/employee_provider.dart';
+import 'package:mini_pdv/models/employee.dart';
+import 'package:mini_pdv/providers/employee_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
  var cpfMaskFormatter = MaskTextInputFormatter(

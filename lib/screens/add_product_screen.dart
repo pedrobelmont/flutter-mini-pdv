@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/models/product.dart';
-import 'package:flutter_pos/models/product_category.dart';
-import 'package:flutter_pos/providers/product_provider.dart';
-import 'package:flutter_pos/screens/qr_scanner_screen.dart';
+import 'package:mini_pdv/models/product.dart';
+import 'package:mini_pdv/models/product_category.dart';
+import 'package:mini_pdv/providers/product_provider.dart';
+import 'package:mini_pdv/screens/qr_scanner_screen.dart';
 import 'package:provider/provider.dart';
 
 class AddProductScreen extends StatefulWidget {

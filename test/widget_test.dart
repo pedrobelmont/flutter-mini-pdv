@@ -6,10 +6,10 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/screens/add_edit_employee_screen.dart';
+import 'package:mini_pdv/screens/add_edit_employee_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_pos/main.dart';
+import 'package:mini_pdv/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

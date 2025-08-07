@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/enums/hive_boxes.dart';
-import 'package:flutter_pos/models/product.dart';
+import 'package:mini_pdv/enums/hive_boxes.dart';
+import 'package:mini_pdv/models/product.dart';
 import 'package:hive_ce/hive.dart';
 import 'package:uuid/uuid.dart';
 

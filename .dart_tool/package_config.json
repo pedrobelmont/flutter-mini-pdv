@@ -758,7 +758,7 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "flutter_pos",
+      "name": "mini_pdv",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.8"

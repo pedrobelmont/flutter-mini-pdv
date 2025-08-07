@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/providers/employee_provider.dart';
-import 'package:flutter_pos/screens/admin_screen.dart';
-import 'package:flutter_pos/screens/pos_screen.dart';
+import 'package:mini_pdv/providers/employee_provider.dart';
+import 'package:mini_pdv/screens/admin_screen.dart';
+import 'package:mini_pdv/screens/pos_screen.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {

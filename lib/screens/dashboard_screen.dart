@@ -1,10 +1,10 @@
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/models/product.dart';
-import 'package:flutter_pos/models/sale.dart';
-import 'package:flutter_pos/providers/product_provider.dart';
-import 'package:flutter_pos/providers/sales_provider.dart';
+import 'package:mini_pdv/models/product.dart';
+import 'package:mini_pdv/models/sale.dart';
+import 'package:mini_pdv/providers/product_provider.dart';
+import 'package:mini_pdv/providers/sales_provider.dart';
 import 'package:provider/provider.dart';
 
 class DashboardScreen extends StatelessWidget {

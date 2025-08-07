@@ -1,7 +1,7 @@
 
 import 'package:hive_ce/hive.dart';
-import 'package:flutter_pos/models/cart_item.dart';
-import 'package:flutter_pos/models/payment_method.dart';
+import 'package:mini_pdv/models/cart_item.dart';
+import 'package:mini_pdv/models/payment_method.dart';
 
 part 'sale.g.dart';
 

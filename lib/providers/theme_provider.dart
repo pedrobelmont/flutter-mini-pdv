@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/enums/hive_boxes.dart';
+import 'package:mini_pdv/enums/hive_boxes.dart';
 import 'package:hive_ce/hive.dart';
 
 class ThemeNotifier extends ChangeNotifier {

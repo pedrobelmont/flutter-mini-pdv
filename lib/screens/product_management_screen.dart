@@ -6,11 +6,11 @@ import 'package:csv/csv.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/models/product_category.dart';
-import 'package:flutter_pos/models/product.dart';
-import 'package:flutter_pos/providers/product_provider.dart';
-import 'package:flutter_pos/screens/add_product_screen.dart';
-import 'package:flutter_pos/screens/edit_product_screen.dart';
+import 'package:mini_pdv/models/product_category.dart';
+import 'package:mini_pdv/models/product.dart';
+import 'package:mini_pdv/providers/product_provider.dart';
+import 'package:mini_pdv/screens/add_product_screen.dart';
+import 'package:mini_pdv/screens/edit_product_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 

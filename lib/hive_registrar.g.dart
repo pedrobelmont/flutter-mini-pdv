@@ -3,13 +3,13 @@
 // Check in to version control
 
 import 'package:hive_ce/hive.dart';
-import 'package:flutter_pos/models/cart_item.dart';
-import 'package:flutter_pos/models/company_info.dart';
-import 'package:flutter_pos/models/employee.dart';
-import 'package:flutter_pos/models/payment_method.dart';
-import 'package:flutter_pos/models/product.dart';
-import 'package:flutter_pos/models/product_category.dart';
-import 'package:flutter_pos/models/sale.dart';
+import 'package:mini_pdv/models/cart_item.dart';
+import 'package:mini_pdv/models/company_info.dart';
+import 'package:mini_pdv/models/employee.dart';
+import 'package:mini_pdv/models/payment_method.dart';
+import 'package:mini_pdv/models/product.dart';
+import 'package:mini_pdv/models/product_category.dart';
+import 'package:mini_pdv/models/sale.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {

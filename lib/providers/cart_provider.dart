@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/enums/hive_boxes.dart';
-import 'package:flutter_pos/models/cart_item.dart';
-import 'package:flutter_pos/models/product.dart';
+import 'package:mini_pdv/enums/hive_boxes.dart';
+import 'package:mini_pdv/models/cart_item.dart';
+import 'package:mini_pdv/models/product.dart';
 import 'package:hive_ce/hive.dart';
 
 class CartProvider with ChangeNotifier {

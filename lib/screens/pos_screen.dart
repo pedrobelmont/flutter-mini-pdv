@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/dialogs/quick_add_dialog.dart';
-import 'package:flutter_pos/models/product_category.dart';
-import 'package:flutter_pos/providers/cart_provider.dart';
-import 'package:flutter_pos/providers/company_info_provider.dart';
-import 'package:flutter_pos/screens/add_product_screen.dart';
-import 'package:flutter_pos/screens/admin_screen.dart';
-import 'package:flutter_pos/screens/sales_history_screen.dart';
-import 'package:flutter_pos/widgets/cart_view.dart';
-import 'package:flutter_pos/widgets/product_grid.dart';
+import 'package:mini_pdv/dialogs/quick_add_dialog.dart';
+import 'package:mini_pdv/models/product_category.dart';
+import 'package:mini_pdv/providers/cart_provider.dart';
+import 'package:mini_pdv/providers/company_info_provider.dart';
+import 'package:mini_pdv/screens/add_product_screen.dart';
+import 'package:mini_pdv/screens/admin_screen.dart';
+import 'package:mini_pdv/screens/sales_history_screen.dart';
+import 'package:mini_pdv/widgets/cart_view.dart';
+import 'package:mini_pdv/widgets/product_grid.dart';
 import 'package:provider/provider.dart';
 
 class PosScreen extends StatefulWidget {

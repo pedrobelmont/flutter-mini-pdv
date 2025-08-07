@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/flutter_pos.iml" filepath="$PROJECT_DIR$/flutter_pos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/flutter_pos_android.iml" filepath="$PROJECT_DIR$/android/flutter_pos_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mini_pdv.iml" filepath="$PROJECT_DIR$/mini_pdv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/mini_pdv_android.iml" filepath="$PROJECT_DIR$/android/mini_pdv_android.iml" />
     </modules>
   </component>
 </project>

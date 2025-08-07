@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/enums/hive_boxes.dart';
-import 'package:flutter_pos/models/cart_item.dart';
-import 'package:flutter_pos/models/payment_method.dart';
-import 'package:flutter_pos/models/sale.dart';
-import 'package:flutter_pos/providers/product_provider.dart';
+import 'package:mini_pdv/enums/hive_boxes.dart';
+import 'package:mini_pdv/models/cart_item.dart';
+import 'package:mini_pdv/models/payment_method.dart';
+import 'package:mini_pdv/models/sale.dart';
+import 'package:mini_pdv/providers/product_provider.dart';
 import 'package:hive_ce/hive.dart';
 
 class SalesProvider with ChangeNotifier {
