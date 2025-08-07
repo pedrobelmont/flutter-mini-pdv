@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/dialogs/payment_dialog.dart';
 import 'package:flutter_pos/dialogs/quick_add_dialog.dart';
-import 'package:flutter_pos/models/payment_method.dart';
 import 'package:flutter_pos/models/product_category.dart';
 import 'package:flutter_pos/providers/cart_provider.dart';
 import 'package:flutter_pos/providers/company_info_provider.dart';
-import 'package:flutter_pos/providers/sales_provider.dart';
 import 'package:flutter_pos/screens/add_product_screen.dart';
+import 'package:flutter_pos/screens/admin_screen.dart';
 import 'package:flutter_pos/screens/sales_history_screen.dart';
 import 'package:flutter_pos/widgets/cart_view.dart';
 import 'package:flutter_pos/widgets/product_grid.dart';
@@ -29,12 +27,20 @@ class _PosScreenState extends State<PosScreen> {
   @override
   Widget build(BuildContext context) {
     final companyInfo = Provider.of<CompanyInfoProvider>(context).companyInfo;
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
     final companyName = companyInfo?.name ?? '';
 
     return Scaffold(
       appBar: AppBar(
         title: Text('$companyName - ${widget.employeeName}'),
         actions: [
+          IconButton(onPressed: (){
+             Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AdminScreen()),
+              );
+          }, icon: Icon(Icons.settings)),
+          
           IconButton(
             icon: Icon(Icons.history),
             onPressed: () {
@@ -114,9 +120,10 @@ class _PosScreenState extends State<PosScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-         
+          showDialog(context: context, builder: (context) => QuickAddDialog());
         },
-        child: Icon(Icons.payment),
+        tooltip: 'Limpar Carrinho',
+        child: Icon(Icons.remove_shopping_cart),
       ),
     );
   }

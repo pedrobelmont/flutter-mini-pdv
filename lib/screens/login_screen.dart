@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_pos/models/employee.dart';
 import 'package:flutter_pos/providers/employee_provider.dart';
 import 'package:flutter_pos/screens/admin_screen.dart';
 import 'package:flutter_pos/screens/pos_screen.dart';
@@ -39,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
         title: Text('Login de Funcionário'),
         actions: [
           IconButton(
-            icon: Icon(Icons.admin_panel_settings),
+            icon: Icon(Icons.settings),
             onPressed: () {
               Navigator.push(
                 context,
@@ -57,9 +56,12 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset('asset/img/logo.png', width: 200,),
                 TextFormField(
                   controller: _controller,
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person, size: 22,),
+                 
                     labelText: 'Código de Funcionário',
                   ),
                   validator: (value) {
@@ -71,8 +73,20 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  ),
+                  
                   onPressed: _login,
-                  child: Text('Entrar'),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                    Icon(Icons.login, size: 18,),
+                    SizedBox(width: 10),
+                    Text('Entrar', style: TextStyle(fontSize: 18),),
+                  ],),
                 ),
               ],
             ),

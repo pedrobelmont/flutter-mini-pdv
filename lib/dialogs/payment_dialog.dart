@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_pos/models/payment_method.dart';
 import 'package:flutter_pos/providers/cart_provider.dart';
+import 'package:flutter_pos/providers/product_provider.dart';
 import 'package:flutter_pos/providers/sales_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -43,12 +44,15 @@ class _PaymentDialogState extends State<PaymentDialog> {
   void _processPayment() {
     final cartProvider = Provider.of<CartProvider>(context, listen: false);
     final salesProvider = Provider.of<SalesProvider>(context, listen: false);
+    final productProvider =
+        Provider.of<ProductProvider>(context, listen: false);
     final paidAmount = double.tryParse(_textController.text) ?? 0.0;
 
     if (paidAmount <= 0 || _selectedPaymentMethod == null) return;
 
     if (paidAmount < _total) {
-      salesProvider.addSale(cartProvider.items, paidAmount, _selectedPaymentMethod!);
+      salesProvider.addSale(
+          cartProvider.items, paidAmount, _selectedPaymentMethod!, productProvider);
       setState(() {
         _total -= paidAmount;
         _amountToPay = _total;
@@ -56,7 +60,8 @@ class _PaymentDialogState extends State<PaymentDialog> {
         _selectedPaymentMethod = null;
       });
     } else {
-      salesProvider.addSale(cartProvider.items, _total, _selectedPaymentMethod!);
+      salesProvider.addSale(
+          cartProvider.items, _total, _selectedPaymentMethod!, productProvider);
       cartProvider.clear();
       Navigator.of(context).pop();
     }

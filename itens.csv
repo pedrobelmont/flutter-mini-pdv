@@ -1,5 +1,5 @@
-nome,preco,codigo_barras,estoque,categoria
-Coca-Cola Lata,4.50,7894900011517,150,Bebidas
-Batata Frita Ondulada,9.80,7892840814542,80,Salgadinhos
-Chocolate ao Leite,7.50,7891000100103,120,Doces
-Agua Mineral sem Gas,3.00,7894900011524,250,Bebidas
+nome,preco,codigo_barras,estoque,
+Coca-Cola Lata,4.50,7894900011517,150,
+Batata Frita Ondulada,9.80,7892840814542,80,
+Chocolate ao Leite,7.50,7891000100103,120,
+Agua Mineral sem Gas,3.00,7894900011524,250,

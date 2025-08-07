@@ -1,8 +1,9 @@
 
 import 'dart:io';
-
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:convert';
 import 'package:flutter_pos/models/sale.dart';
 import 'package:flutter_pos/providers/sales_provider.dart';
 import 'package:path_provider/path_provider.dart';
@@ -31,26 +32,54 @@ class _SalesHistoryScreenState extends State<SalesHistoryScreen> {
 
   Future<void> _exportToCsv(List<Sale> sales) async {
     final List<List<dynamic>> rows = [];
-    rows.add(['ID da Venda', 'Data', 'Total', 'Método de Pagamento', 'Itens']);
-        for (var i = 0; i < sales.length; i++) {
+    rows.add(['ID da Venda', 'Data', 'Total', 'Método de Pagamento', 'Itens']); // Header
+    for (var i = 0; i < sales.length; i++) {
       final sale = sales[i];
       rows.add([
         i + 1,
         sale.date,
         sale.total,
-        sale.paymentMethod,
+        sale.paymentMethod.toString().split('.').last,
         sale.items.map((e) => e.product.name).join(', ')
       ]);
     }
 
-    String csv = const ListToCsvConverter().convert(rows);
+    try {
+      final String csvData = const ListToCsvConverter().convert(rows);
 
-    final directory = await getApplicationDocumentsDirectory();
-    final path = "${directory.path}/sales.csv";
-    final file = File(path);
-    await file.writeAsString(csv);
+      if (kIsWeb) {
+        // Para a web, usamos o share_plus para compartilhar os dados diretamente
+        final bytes = utf8.encode(csvData);
+        final xFile = XFile.fromData(
+          bytes,
+          name: 'sales.csv',
+          mimeType: 'text/csv',
+        );
+        ShareParams params = ShareParams(
+  files: [
+    xFile
+  ],
+);      final result = await SharePlus.instance.share(params);
 
-        await Share.shareXFiles([XFile(path)], text: 'Vendas Exportadas');
+if (result.status == ShareResultStatus.dismissed) {
+    print('Did you not like the pictures?');
+}
+        // await Share.shareXFiles([xFile], text: 'Histórico de Vendas');
+      } else {
+        // Para mobile/desktop, salvamos em um arquivo primeiro
+        final directory = await getApplicationDocumentsDirectory();
+        final path = "${directory.path}/sales.csv";
+        final file = File(path);
+        await file.writeAsString(csvData);
+        await Share.shareXFiles([XFile(path)], text: 'Histórico de Vendas');
+      }
+    } catch (e) {
+      print(e);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erro ao exportar para CSV: $e')),
+      );
+    }
   }
 
   Future<void> _exportToPdf(List<Sale> sales) async {
@@ -68,7 +97,7 @@ class _SalesHistoryScreenState extends State<SalesHistoryScreen> {
                 child: pw.Column(
                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
-                                                                                pw.Text('Venda #${index + 1}', style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+                    pw.Text('Venda #${index + 1}', style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
                     pw.Text('Data: ${sale.date}'),
                     pw.Text('Total: R\$ ${sale.total.toStringAsFixed(2)}'),
                     pw.Text('Pagamento: ${sale.paymentMethod.toString().split('.').last}'),
@@ -88,7 +117,15 @@ class _SalesHistoryScreenState extends State<SalesHistoryScreen> {
           );
         }));
 
-    await Printing.sharePdf(bytes: await pdf.save(), filename: 'sales.pdf');
+    try {
+      final pdfBytes = await pdf.save();
+      await Printing.sharePdf(bytes: pdfBytes, filename: 'sales.pdf');
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erro ao exportar para PDF: $e')),
+      );
+    }
   }
 
   @override

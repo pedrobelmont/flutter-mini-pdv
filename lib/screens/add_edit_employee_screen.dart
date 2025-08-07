@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pos/models/employee.dart';
 import 'package:flutter_pos/providers/employee_provider.dart';
 import 'package:provider/provider.dart';
-
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+ var cpfMaskFormatter = MaskTextInputFormatter(
+        mask: '###.###.###-##', // Example mask for a phone number
+        filter: {"#": RegExp(r'[0-9]')}, // Filter to allow only digits for '#'
+        type: MaskAutoCompletionType.lazy // Optional: for auto-completion behavior
+    );
 class AddEditEmployeeScreen extends StatefulWidget {
   final Employee? employee;
 
@@ -95,6 +100,7 @@ class _AddEditEmployeeScreenState extends State<AddEditEmployeeScreen> {
                 ),
                 SizedBox(height: 16.0),
                 TextFormField(
+                  inputFormatters: [cpfMaskFormatter],
                   initialValue: _cpf,
                   decoration: InputDecoration(labelText: 'CPF'),
                   validator: (value) {
@@ -125,11 +131,17 @@ class _AddEditEmployeeScreenState extends State<AddEditEmployeeScreen> {
                 ),
                 SizedBox(height: 16.0),
                 Row(
+                  
                   children: [
                     Expanded(
-                      child: Text('Data de Nascimento: ${_birthDate.toLocal()}'.split(' ')[0]),
+                    child: Text('Data de Nascimento:' + ' ${  _birthDate.toLocal().toString().split(' ')[0] }',),
                     ),
                     TextButton(
+                      style: ElevatedButton.styleFrom(
+                    elevation: 8.4,
+                    shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),),
                       child: Text('Selecionar Data'),
                       onPressed: () async {
                         final date = await showDatePicker(

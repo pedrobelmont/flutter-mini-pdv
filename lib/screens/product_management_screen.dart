@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:csv/csv.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_pos/models/product_category.dart';
 import 'package:flutter_pos/models/product.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_pos/providers/product_provider.dart';
 import 'package:flutter_pos/screens/add_product_screen.dart';
 import 'package:flutter_pos/screens/edit_product_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:uuid/uuid.dart';
 
 class ProductManagementScreen extends StatefulWidget {
   @override
@@ -24,28 +26,47 @@ class _ProductManagementScreenState extends State<ProductManagementScreen> {
       allowedExtensions: ['csv'],
     );
 
-    if (result != null) {
-      final filePath = result.files.single.path!;
-      final input = File(filePath).openRead();
-      final fields = await input
-          .transform(utf8.decoder)
-          .transform(new CsvToListConverter())
-          .toList();
+    if (result == null) return;
 
-      final productProvider = Provider.of<ProductProvider>(context, listen: false);
-      for (final field in fields.skip(1)) { // Pula o cabeçalho
+    try {
+      List<List<dynamic>> fields;
+
+      if (kIsWeb) {
+        final bytes = result.files.single.bytes!;
+        final csvString = utf8.decode(bytes);
+        fields = const CsvToListConverter().convert(csvString);
+      } else {
+        final filePath = result.files.single.path!;
+        final input = File(filePath).openRead();
+        fields = await input
+            .transform(utf8.decoder)
+            .transform(const CsvToListConverter())
+            .toList();
+      }
+
+      final productProvider =
+          Provider.of<ProductProvider>(context, listen: false);
+      // Pula a primeira linha (cabeçalho) e itera sobre o resto
+      for (final field in fields.skip(1)) {
         final product = Product(
-          id: DateTime.now().toString(),
-          name: field[0],
+          id: Uuid().v4(), // Gera um ID único
+          name: field[0].toString(),
           price: double.parse(field[1].toString()),
           stock: int.parse(field[2].toString()),
-          category: ProductCategory.others,
+          category: ProductCategory.others, // Categoria padrão
         );
         productProvider.add(product);
       }
 
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Produtos importados com sucesso!')),
+      );
+    } catch (e) {
+      print('Erro ao importar CSV: $e');
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Falha ao importar produtos: $e')),
       );
     }
   }

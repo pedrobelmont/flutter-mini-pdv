@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_pos/models/employee.dart';
 import 'package:flutter_pos/providers/employee_provider.dart';
 import 'package:flutter_pos/screens/add_edit_employee_screen.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +31,9 @@ class EmployeeManagementScreen extends StatelessWidget {
           final employee = employeeProvider.employees[index];
           return ListTile(
             title: Text(employee.name),
+            leading: CircleAvatar(
+              child: Text(employee.name[0]),
+            ),
             subtitle: Text('Código: ${employee.id}\nCPF: ${employee.cpf} - Sexo: ${employee.gender}'),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,

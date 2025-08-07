@@ -57,7 +57,7 @@ class CartProvider with ChangeNotifier {
   }
 
   void clear() {
-    _cartBox.clear();
+    _cartBox.deleteAll(this.items.map((item) => item.key).toList());
     notifyListeners();
   }
 }

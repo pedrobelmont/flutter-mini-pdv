@@ -31,11 +31,7 @@ class _CartViewState extends State<CartView> {
                   final salesProvider = Provider.of<SalesProvider>(context, listen: false);
                   final productProvider = Provider.of<ProductProvider>(context, listen: false);
 
-                  for (var item in cartProvider.items) {
-                    productProvider.decrementStock(item.product.id, item.quantity);
-                  }
-
-                  salesProvider.addSale(cartProvider.items, cartProvider.total, method);
+                  salesProvider.addSale(cartProvider.items, cartProvider.total, method, productProvider);
                   cartProvider.clear();
                   Navigator.of(context).pop();
                 },
@@ -81,16 +77,16 @@ class _CartViewState extends State<CartView> {
 
           SizedBox(height: 10),
           Container(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(18.0),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
               child: Text(
                 'Total: R\$ ${cart.total.toStringAsFixed(2)}',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 26,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),

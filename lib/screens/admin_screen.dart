@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_pos/screens/dashboard_screen.dart';
 import 'package:flutter_pos/screens/employee_management_screen.dart';
 import 'package:flutter_pos/screens/product_management_screen.dart';
 import 'package:flutter_pos/screens/company_info_screen.dart';
@@ -61,6 +62,16 @@ class AdminScreen extends StatelessWidget {
               );
             },
           ),
+          _AdminMenuButton(
+            icon: Icons.browser_updated,
+            label: 'Monitoramento',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DashboardScreen()),
+              );
+            }
+          )
         ],
       ),
     );
@@ -90,10 +101,11 @@ class _AdminMenuButton extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Icon(icon, size: 48),
+          Expanded(child: Icon(icon, size: 48)),
           const SizedBox(height: 16),
           Expanded(
             child: Text(

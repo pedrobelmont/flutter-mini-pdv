@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_pos/enums/hive_boxes.dart';
 import 'package:flutter_pos/models/employee.dart';
@@ -16,7 +15,6 @@ import 'package:flutter_pos/providers/company_info_provider.dart';
 import 'package:flutter_pos/providers/theme_provider.dart';
 import 'package:flutter_pos/screens/login_screen.dart';
 import 'package:flutter_pos/widgets/Spacial_will.dart';
-import 'package:hive_ce/hive.dart';
 import 'package:hive_ce_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +38,7 @@ void main() async {
 
   final productProvider = ProductProvider();
   if (productProvider.products.isEmpty) {
-    productProvider.add(Product(id: '1', name: 'Coca-Cola', price: 5.0, category: ProductCategory.drink));
+    productProvider.add(Product(id: '1', name: 'Coca-Cola', price: 5.0, category: ProductCategory.drink, stock: 5));
     productProvider.add(Product(id: '2', name: 'X-Burger', price: 15.0, category: ProductCategory.food));
     productProvider.add(Product(id: '3', name: 'Batata Frita', price: 10.0, category: ProductCategory.food));
   }
@@ -72,6 +70,9 @@ class MyApp extends StatelessWidget {
             color: themeNotifier.primaryColor,
             title: 'mini pdv',
             theme: ThemeData(
+             
+              iconTheme: IconThemeData(color: themeNotifier.primaryColor),
+              
               primaryColor: themeNotifier.primaryColor,
               colorScheme: ColorScheme.fromSwatch(
                   primarySwatch: MaterialColor(themeNotifier.primaryColor.value, <int, Color>{
