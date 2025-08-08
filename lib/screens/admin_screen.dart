@@ -5,6 +5,7 @@ import 'package:mini_pdv/screens/employee_management_screen.dart';
 import 'package:mini_pdv/screens/product_management_screen.dart';
 import 'package:mini_pdv/screens/company_info_screen.dart';
 import 'package:mini_pdv/screens/theme_screen.dart';
+import 'package:mini_pdv/screens/manual_screen.dart';
 
 class AdminScreen extends StatelessWidget {
   @override
@@ -71,7 +72,17 @@ class AdminScreen extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => DashboardScreen()),
               );
             }
-          )
+          ),
+          _AdminMenuButton(
+            icon: Icons.menu_book_outlined,
+            label: 'Manual do PDV',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ManualScreen()),
+              );
+            },
+          ),
         ],
       ),
     );
